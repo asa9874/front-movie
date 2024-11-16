@@ -7,6 +7,10 @@ module.exports = {
   mode: "development",
   resolve: {
     extensions: [".ts", ".js"],
+    fallback: {
+      fs: false, // fs 모듈 사용 방지
+      path: false, // path 모듈 사용 방지
+    },
   },
   devServer: {
     static: "./dist",
@@ -23,7 +27,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
-    new DotEnv(),
+    new DotEnv({
+      path: './.env', 
+    }),
   ],
   module: {
     rules: [
@@ -42,4 +48,5 @@ module.exports = {
       },
     ],
   },
+  
 };
