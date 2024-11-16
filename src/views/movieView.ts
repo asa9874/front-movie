@@ -1,10 +1,20 @@
-import { getMovieAPi } from "../apis/getMovieApis";
+import { getMovie, getSearchMovie } from "../apis/getMovieApis";
+import { Movie } from "../types/movie";
 
 const $movieContainer= document.getElementsByClassName("movie-container")[0];
 
+export async function viewSearchMovie(page: number, searchString: string) {
+    const movies = await getSearchMovie(page,searchString);
+    viewMovies(movies)
+}
 
-export async function viewMovies(page: number) {
-    const movies = await getMovieAPi(page);
+export async function viewPopularMovie(page: number) {
+    const movies = await getMovie(page);
+    viewMovies(movies)
+}
+    
+
+export function viewMovies(movies: Movie[]) {
     console.log(movies);  // 비동기적으로 받아온 영화 목록
     movies.forEach(movie => {
         $movieContainer.innerHTML+=

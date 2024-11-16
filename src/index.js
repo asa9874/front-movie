@@ -5,6 +5,6 @@ import "./styles/reset.css";
 
 import "./events/ButtonEvent.ts";
 import "./header.js";
-import { viewMovies } from "./views/movieView.ts";
+import { viewPopularMovie } from "./views/movieView";
 
-viewMovies(1);
+viewPopularMovie(1);

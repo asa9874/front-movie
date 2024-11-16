@@ -8,11 +8,21 @@ import { Movie } from '../types/movie';
 //리스트
 //https://api.themoviedb.org/3/
 
+export function getMovie(page: number): Promise<Movie[]>{
+  const Baseurl = BASE_URL + "movie/top_rated?api_key=" + process.env.API_KEY + "&language=en-US&page=" + page;
+  return getMovieAPi(page,Baseurl)
+}
+
+export function getSearchMovie(page: number, searchString: string): Promise<Movie[]>{
+  const url = BASE_URL + 'search/movie?api_key=' + process.env.API_KEY + '&query=' + searchString + '&include_adult=false&language=en-US&page=' + page;
+  return getMovieAPi(page,url)
+}
 
 
 
-export function getMovieAPi(page: number): Promise<Movie[]> {
-  const url = BASE_URL + "movie/top_rated?api_key=" + process.env.API_KEY + "&language=en-US&page=" + page;
+
+
+export function getMovieAPi(page: number, url: string): Promise<Movie[]> {
   const options = {
     method: 'GET',
     headers: {
@@ -39,6 +49,7 @@ export function getMovieAPi(page: number): Promise<Movie[]> {
         vote_average: item.vote_average,
         vote_count: item.vote_count,
       }));
+      console.log(movies)
       return movies;
     })
     .catch(err => {
