@@ -8,6 +8,9 @@ import { Movie } from '../types/movie';
 //리스트
 //https://api.themoviedb.org/3/
 
+
+
+
 export function getMovieAPi(page: number): Promise<Movie[]> {
   const url = BASE_URL + "movie/top_rated?api_key=" + process.env.API_KEY + "&language=en-US&page=" + page;
   const options = {
