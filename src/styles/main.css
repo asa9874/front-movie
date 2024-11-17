@@ -1,8 +1,7 @@
 .main-container{
-    background-color: rgb(172, 157, 172);
     width: calc(100% - 180px);
     display: flex;
-    margin: 60px 180px 150px 180px;
+    margin: 120px 180px 150px 180px;
     flex-direction: column;
 }
 
@@ -13,7 +12,6 @@
 }
 
 .movie-container{
-    background-color: rgb(30, 30, 29);
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
@@ -31,7 +29,6 @@
 .movie-card{
     width: 180px;
     height: 360px;
-    background-color: aquamarine;
     margin:10px;
     display: flex;
     flex-direction: column;
