@@ -3,6 +3,7 @@
     display: flex;
     margin: 120px 180px 150px 180px;
     flex-direction: column;
+    
 }
 
 .main-title{
@@ -45,6 +46,8 @@
 .movie-title{
     color: white;
     font-size: 18px;
+    min-height: 30px;
+    
 }
 
 .movie-rating{

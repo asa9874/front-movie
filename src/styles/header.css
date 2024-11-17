@@ -6,6 +6,7 @@ header{
     height: 60px;
     background-color: black;
     width: 100%;
+    min-width: 610px;
     box-shadow: 0px 0px 10px white;
     top: 0;
 }
@@ -33,8 +34,24 @@ header{
     font-size: 20px;
 }
 
+
+
 .search-button {
     border: 0;
     width: 18px;
     height: 18px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .search-input{
+        display: none;
+    }
+    .search-box{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
