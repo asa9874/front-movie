@@ -9,12 +9,12 @@ import { Movie } from '../types/movie';
 //https://api.themoviedb.org/3/
 
 export function getMovie(page: number): Promise<Movie[]>{
-  const Baseurl = BASE_URL + "movie/top_rated?api_key=" + process.env.API_KEY + "&language=en-US&page=" + page;
+  const Baseurl = BASE_URL + "movie/top_rated?api_key=" + process.env.API_KEY + "&language=ko-KR&page=" + page;
   return getMovieAPi(page,Baseurl)
 }
 
 export function getSearchMovie(page: number, searchString: string): Promise<Movie[]>{
-  const url = BASE_URL + 'search/movie?api_key=' + process.env.API_KEY + '&query=' + searchString + '&include_adult=false&language=en-US&page=' + page;
+  const url = BASE_URL + 'search/movie?api_key=' + process.env.API_KEY + '&query=' + searchString + '&include_adult=false&language=ko-KR&page=' + page;
   return getMovieAPi(page,url)
 }
 
