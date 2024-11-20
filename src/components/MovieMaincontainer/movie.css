@@ -1,0 +1,14 @@
+.main-container{
+    width: calc(100% - 360px);
+    display: flex;
+    margin: 120px 180px 150px 180px;
+    flex-direction: column;
+    
+}
+
+.main-title{
+    font-size: 36px;
+    color: white;
+    font-weight: 800;
+}
+

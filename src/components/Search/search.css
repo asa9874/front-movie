@@ -1,0 +1,46 @@
+
+.search-box{
+    float: right;
+    background-color: white;
+    width: 320px;
+    height: 42px;
+    margin-right: 30px;
+    border-radius:10px;
+}
+
+.search-input{
+    height: 42px;
+    border-radius:10px;
+    border: 0px;
+    padding: 0px;
+    width: calc(100% - 50px);
+    font-size: 20px;
+}
+
+.search-toggle-button{
+    display: none;
+}
+
+.search-button {
+    border: 0;
+    width: 18px;
+    height: 18px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .search-toggle-button{
+        display: flex;
+        float: right;
+        background-color: white;
+        border-radius: 30px;
+    }
+    .search-box{
+        position: fixed;
+        top:60px;
+        width: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+}

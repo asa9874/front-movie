@@ -1,0 +1,17 @@
+header{
+    position: fixed;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: black;
+    width: 100%;
+    min-width: 610px;
+    box-shadow: 0px 0px 10px white;
+    top: 0;
+}
+
+.logo{
+    position: relative;
+    margin-left: 30px;
+}
