@@ -1,11 +1,7 @@
 
 
-import "./Header/index";
-import "./Search/index";
+import { Header } from "./Header/index";
+import { MovieMaincontainer } from "./MovieMaincontainer/index";
 
-import "./MovieMaincontainer/index";
-
-import "./MoviceCardContainer/index";
-
-import "./MovieMoreButton/index";
-
+Header();
+MovieMaincontainer();
