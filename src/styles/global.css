@@ -8,3 +8,7 @@ html,body{
     min-width: 610px;
 
 }
+#root{
+    width: 100%;
+    height: 100%;
+}

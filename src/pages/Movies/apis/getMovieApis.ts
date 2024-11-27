@@ -1,20 +1,13 @@
-// apis 폴더에 원하는 api 파일을 만들어 api 함수를 작성하세요.
-// 해당 getExample.ts 파일은 삭제하고 직접 파일명을 고려해서 파일을 생성하세요.
-//https://developer.themoviedb.org/reference/search-movie
-//검색
-//'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1'
-import { BASE_URL, IMAGE_URL } from '../constants/index';
+import { BASE_URL, IMAGE_URL } from '../globals/constants';
 import { Movie } from '../types/movie';
-//리스트
-//https://api.themoviedb.org/3/
 
 export function getMovie(page: number): Promise<Movie[]>{
-  const Baseurl = BASE_URL + "movie/top_rated?api_key=" + process.env.API_KEY + "&language=ko-KR&page=" + page;
+  const Baseurl = BASE_URL + "movie/top_rated?api_key=" + import.meta.env.VITE_API_KEY + "&language=ko-KR&page=" + page;
   return getMovieAPi(page,Baseurl)
 }
 
 export function getSearchMovie(page: number, searchString: string): Promise<Movie[]>{
-  const url = BASE_URL + 'search/movie?api_key=' + process.env.API_KEY + '&query=' + searchString + '&include_adult=false&language=ko-KR&page=' + page;
+  const url = BASE_URL + 'search/movie?api_key=' + import.meta.env.VITE_API_KEY + '&query=' + searchString + '&include_adult=false&language=ko-KR&page=' + page;
   return getMovieAPi(page,url)
 }
 
