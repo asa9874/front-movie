@@ -4,9 +4,10 @@ import { Movie } from "./types/movie";
 
 
 export async function viewSearchMovie(page: number, searchString: string) {
+    const $movieContainer= document.getElementsByClassName("movie-container")[0] as HTMLElement;
     const movies = await getSearchMovie(page,searchString);
     const $mainTitle=document.getElementsByClassName("main-title")[0] as HTMLElement;
-    
+    $movieContainer.innerHTML=""
     $mainTitle.textContent=`"${searchString}" 검색결과`
     viewMovies(movies)
 }
