@@ -1,5 +1,5 @@
 import { global } from '../../globals/globals';
-import { viewPopularMovie, viewSearchMovie } from '../../movieView';
+import { viewPopularMovie, viewSearchMovie } from '../MovieMaincontainer';
 import './movieMoreButton.css';
 function MovieMoreButton() {
   moreMovie();

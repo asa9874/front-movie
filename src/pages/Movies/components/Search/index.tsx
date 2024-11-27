@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import search_button from "../../assets/search_button.png";
 import { global } from '../../globals/globals';
-import { viewSearchMovie } from "../../movieView";
+import { viewSearchMovie } from "../MovieMaincontainer";
 import './search.css';
 
 function Search() {
