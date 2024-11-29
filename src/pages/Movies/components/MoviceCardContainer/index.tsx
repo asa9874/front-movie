@@ -38,7 +38,7 @@ function MovieCardContainer({ globalState }: MovieCardContainerProps) {
       }
     };
     fetchMovies();
-  }, [globalState.page]);
+  }, [globalState.page,globalState.searched,globalState.searchClicked]);
 
   //검색시 영화초기화
   useEffect(() => {
@@ -49,8 +49,8 @@ function MovieCardContainer({ globalState }: MovieCardContainerProps) {
   return (
     <>
       <div className="movie-container">
-      {movies?.map((movie) => (
-        <MovieCard key={movie.id} {...movie} />
+      {movies?.map((movie, index) => (
+        <MovieCard key={`${movie.id}-${index}`} {...movie} />
       ))}
     </div>
     </>

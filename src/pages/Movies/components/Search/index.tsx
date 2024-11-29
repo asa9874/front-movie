@@ -38,9 +38,17 @@ function Search({ globalState }: SearchProps) {
 
   //검색
   useEffect(() => {
-      globalState.setSearched(true);
-      globalState.setPage(1);
-      globalState.setSearchString(inputString);
+      console.log("검색누름")
+      if(inputString!=""){
+        globalState.setSearched(true);
+        globalState.setPage(1);
+        globalState.setSearchString(inputString);
+      }
+      else{
+        console.log("빈");
+        globalState.setSearched(false);
+        globalState.setSearchString("");
+      }
   }, [globalState.searchClicked]);
 
   //토글
@@ -51,7 +59,7 @@ function Search({ globalState }: SearchProps) {
   //검색 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
-    globalState.setsearchClicked(!globalState.searchClicked);
+    globalState.setsearchClicked(prev => !prev);
   };
 
 
@@ -62,7 +70,7 @@ function Search({ globalState }: SearchProps) {
         <img className="search-toggle-button" src={search_button} onClick={toggleSearchBox}></img>
       )}
       {isSearchBoxVisible && (
-        <form className="search-box" onSubmit={handleSearch}>
+        <form className="search-box">
           <input
             className="search-input"
             type="text"
@@ -70,7 +78,7 @@ function Search({ globalState }: SearchProps) {
             value={inputString}
             onChange={(e) => setInputString(e.target.value)}
           />
-          <button className="search-button" type="submit">
+          <button className="search-button" onClick={handleSearch}>
             <img src={search_button} alt="검색 버튼" />
           </button>
         </form>

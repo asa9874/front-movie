@@ -2,12 +2,6 @@ import MovieCardContainer from '../MoviceCardContainer'
 import MovieMoreButton from '../MovieMoreButton'
 import './movie.css'
 
-import { getMovie, getSearchMovie } from "../../apis/getMovieApis"
-import star from "../../assets/star.svg"
-import { Movie } from "../../types/movie"
-import { useEffect, useState } from 'react'
-
-
 interface GlobalState {
     page: number;
     setPage: React.Dispatch<React.SetStateAction<number>>;
