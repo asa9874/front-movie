@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import MovieCardContainer from '../MoviceCardContainer'
 import MovieMoreButton from '../MovieMoreButton'
 import './movie.css'
 import { Movie } from '../../types/movie';
