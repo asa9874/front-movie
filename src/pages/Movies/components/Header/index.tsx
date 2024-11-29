@@ -1,13 +1,26 @@
-import logo from "../../assets/logo.png"
-import Search from '../Search'
-import './header.css'
+import logo from "../../assets/logo.png";
+import Search from '../Search';
+import './header.css';
+interface GlobalState {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  searched: boolean;
+  setSearched: React.Dispatch<React.SetStateAction<boolean>>;
+  searchString: string;
+  setSearchString: React.Dispatch<React.SetStateAction<string>>;
+}
 
-function Header() {
+interface HeaderProps {
+  globalState: GlobalState; 
+}
+
+
+function Header({ globalState }: HeaderProps) {
   return (
     <>
       <header>
         <img className="logo" src={logo}></img>
-        <Search></Search>
+        <Search  globalState={globalState}></Search>
       </header>
     </>
   )

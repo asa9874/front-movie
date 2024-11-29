@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import search_button from "../../assets/search_button.png";
-import { global } from '../../globals/globals';
-import { viewSearchMovie } from "../MovieMaincontainer";
 import './search.css';
 
-function Search() {
-  //검색상자,입력상태관리
-  const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
-  const [searchText, setSearchText] = useState("");
+interface GlobalState {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  searched: boolean;
+  setSearched: React.Dispatch<React.SetStateAction<boolean>>;
+  searchString: string;
+  setSearchString: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  //화면크기감지 등록
+interface SearchProps {
+  globalState: GlobalState; 
+}
+
+
+function Search({ globalState }: SearchProps) {
+  const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
   useEffect(() => {
     //이벤트
     const handleResize = () => {
@@ -28,17 +36,14 @@ function Search() {
   //토글
   //TODO: 잘안됨
   const toggleSearchBox = () => {
-    setSearchBoxVisible((prev) => !prev);
+    setSearchBoxVisible(prev => !prev);
   };
 
   //검색 
-  //TODO: viewSearchMovie 바꿀예정
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
-    global.searchString = searchText;
-    global.searched = true;
-    global.page = 1;
-    viewSearchMovie(global.page, global.searchString);
+    globalState.setSearched(true);
+    globalState.setPage(1);
   };
 
 
@@ -54,8 +59,8 @@ function Search() {
             className="search-input"
             type="text"
             placeholder="아바타"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            value={globalState.searchString}
+            onChange={(e) => globalState.setSearchString(e.target.value)}
           />
           <button className="search-button" type="submit">
             <img src={search_button} alt="검색 버튼" />
