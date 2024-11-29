@@ -9,6 +9,8 @@ interface GlobalState {
   setSearched: React.Dispatch<React.SetStateAction<boolean>>;
   searchString: string;
   setSearchString: React.Dispatch<React.SetStateAction<string>>;
+  searchClicked : boolean;
+  setsearchClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface SearchProps {
@@ -18,6 +20,7 @@ interface SearchProps {
 
 function Search({ globalState }: SearchProps) {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
+  const [inputString, setInputString] = useState(String);
   useEffect(() => {
     //이벤트
     const handleResize = () => {
@@ -33,8 +36,14 @@ function Search({ globalState }: SearchProps) {
     };
   }, []);
 
+  //검색
+  useEffect(() => {
+      globalState.setSearched(true);
+      globalState.setPage(1);
+      globalState.setSearchString(inputString);
+  }, [globalState.searchClicked]);
+
   //토글
-  //TODO: 잘안됨
   const toggleSearchBox = () => {
     setSearchBoxVisible(prev => !prev);
   };
@@ -42,8 +51,7 @@ function Search({ globalState }: SearchProps) {
   //검색 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
-    globalState.setSearched(true);
-    globalState.setPage(1);
+    globalState.setsearchClicked(!globalState.searchClicked);
   };
 
 
@@ -59,8 +67,8 @@ function Search({ globalState }: SearchProps) {
             className="search-input"
             type="text"
             placeholder="아바타"
-            value={globalState.searchString}
-            onChange={(e) => globalState.setSearchString(e.target.value)}
+            value={inputString}
+            onChange={(e) => setInputString(e.target.value)}
           />
           <button className="search-button" type="submit">
             <img src={search_button} alt="검색 버튼" />

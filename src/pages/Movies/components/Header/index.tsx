@@ -8,6 +8,8 @@ interface GlobalState {
   setSearched: React.Dispatch<React.SetStateAction<boolean>>;
   searchString: string;
   setSearchString: React.Dispatch<React.SetStateAction<string>>;
+  searchClicked : boolean;
+  setsearchClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface HeaderProps {

@@ -4,6 +4,7 @@ import MovieMaincontainer from './components/MovieMaincontainer';
 function Movies() {
   const [page, setPage] = useState<number>(1);
   const [searched, setSearched] = useState<boolean>(false);
+  const [searchClicked, setsearchClicked] = useState<boolean>(false);
   const [searchString, setSearchString] = useState<string>('');
   const globalState = {
     page,
@@ -12,7 +13,10 @@ function Movies() {
     setSearched,
     searchString,
     setSearchString,
+    searchClicked,
+    setsearchClicked
   };
+  
   return (
     <>
       <Header globalState={globalState}></Header>
