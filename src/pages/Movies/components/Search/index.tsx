@@ -21,6 +21,7 @@ interface SearchProps {
 function Search({ globalState }: SearchProps) {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
   const [inputString, setInputString] = useState(String);
+  const [Test, setTest] = useState(1);
   useEffect(() => {
     //이벤트
     const handleResize = () => {
@@ -36,21 +37,6 @@ function Search({ globalState }: SearchProps) {
     };
   }, []);
 
-  //검색
-  useEffect(() => {
-      console.log("검색누름")
-      if(inputString!=""){
-        globalState.setSearched(true);
-        globalState.setPage(1);
-        globalState.setSearchString(inputString);
-      }
-      else{
-        console.log("빈");
-        globalState.setSearched(false);
-        globalState.setSearchString("");
-      }
-  }, [globalState.searchClicked]);
-
   //토글
   const toggleSearchBox = () => {
     setSearchBoxVisible(prev => !prev);
@@ -59,7 +45,19 @@ function Search({ globalState }: SearchProps) {
   //검색 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
+    console.log(Test);
+    setTest(prev=>prev+1);
+    console.log("searchClicked: 변경")
     globalState.setsearchClicked(prev => !prev);
+    if(inputString!=""){
+      globalState.setSearched(true);
+      globalState.setPage(1);
+      globalState.setSearchString(inputString);
+    }
+    else{
+      globalState.setSearched(false);
+      globalState.setSearchString("");
+    }
   };
 
 

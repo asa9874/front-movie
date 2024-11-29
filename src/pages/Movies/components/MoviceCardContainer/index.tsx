@@ -22,29 +22,32 @@ interface MovieCardContainerProps {
 function MovieCardContainer({ globalState }: MovieCardContainerProps) {
 
   const [movies, setMovies] = useState<Movie[]>([]);
-  
-  //영화추가
-  useEffect(() => {
-    const fetchMovies = async () => {
-      if (globalState.searched) {//검색됨
-        const Movies = await getSearchMovie(globalState.page, globalState.searchString);
-        setMovies((prevMovies) => [...prevMovies, ...Movies]); // 기존 영화에 추가
-        console.log("검색영화추가");
-      } 
-      else {// 인기 영화
-        const Movies = await getMovie(globalState.page);
-        setMovies((prevMovies) => [...prevMovies, ...Movies]); // 기존 영화에 추가
-        console.log("인기영화추가");
-      }
-    };
-    fetchMovies();
-  }, [globalState.page,globalState.searched,globalState.searchClicked]);
 
+  
   //검색시 영화초기화
   useEffect(() => {
     setMovies([]);
-    console.log("영화초기화")
+    console.log("영화추가 : 영화초기화")
+    fetchMovies();
   }, [globalState.searchClicked]);
+
+  //영화추가
+  useEffect(() => {
+    if(globalState.page!=1) fetchMovies();
+  }, [globalState.page]);
+
+  const fetchMovies = async () => {
+    if (globalState.searched) {//검색됨
+      const Movies = await getSearchMovie(globalState.page, globalState.searchString);
+      setMovies((prevMovies) => [...prevMovies, ...Movies]); // 기존 영화에 추가
+      console.log("영화추가 : <<"+globalState.searchString+">> 검색영화추가");
+    } 
+    else {// 인기 영화
+      const Movies = await getMovie(globalState.page);
+      setMovies((prevMovies) => [...prevMovies, ...Movies]); // 기존 영화에 추가
+      console.log("영화추가 : 인기영화추가");
+    }
+  };
 
   return (
     <>

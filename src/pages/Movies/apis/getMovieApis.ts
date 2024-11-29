@@ -42,7 +42,7 @@ export function getMovieAPi(page: number, url: string): Promise<Movie[]> {
         vote_average: item.vote_average,
         vote_count: item.vote_count,
       }));
-      console.log(movies)
+      //console.log(movies)
       return movies;
     })
     .catch(err => {
