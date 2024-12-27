@@ -10,7 +10,8 @@ function MovieCard(props: Movie) {
   function popMovieDetail() {
     setShowModal(true); // 모달 열기
   }
-
+  const movieDetailState = { movieState: props, setShowModal };
+  
   return (
     <div className="movie-card" onClick={popMovieDetail}>
       <img className="movie-img" src={props.backdrop_path} alt={props.title} />
@@ -19,7 +20,7 @@ function MovieCard(props: Movie) {
         {props.vote_average}
         <img className="star" src={star} />
       </p>
-      {showModal && <MovieDetail movieState={props} setShowModal={setShowModal} />}
+      {showModal && <MovieDetail movieDetailState={movieDetailState} />}
     </div>
   );
 }
