@@ -11,10 +11,6 @@ export function getSearchMovie(page: number, searchString: string): Promise<Movi
   return getMovieAPi(page,url)
 }
 
-
-
-
-
 export function getMovieAPi(page: number, url: string): Promise<Movie[]> {
   const options = {
     method: 'GET',
