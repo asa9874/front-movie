@@ -1,10 +1,13 @@
-.modal{
-    position: absolute;
-    height: 100%;
-    width: 100%;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; 
+    width: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .modal-background{
@@ -14,6 +17,16 @@
     background-color: black;
     opacity: 0.5;
     z-index: 1;
+}
+.modal-header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    background-color: white;
+    padding: 40px 16px;
 }
 .modal-content-box{
     position: relative;
@@ -26,6 +39,11 @@
     padding: 40px 16px;
 }
 
+.modal-movie-img{
+    height: 100px;
+    width: 100px;
+}
+
 .modal-content-box *{
     margin-bottom: 32px;
 }
@@ -35,25 +53,7 @@
     padding: 8px;
     margin-bottom: 32px;
 }
-
-.result-table > * {
-    text-align: center;
-}
-
-.restart{
-    height: 36px;
-    background: #4E5BA6;
-    color: white;
-    border-radius: 4px;
-    border: none;
-    width: 100%;
-}
-.result-table > table, th, td {
-    border-bottom: 1px solid #0000001F;
-    border-top: 1px solid #0000001F;
-    padding: 8px;
-}
-
+ 
 .modal-close-x{
     position: absolute;
     right: 20px;
