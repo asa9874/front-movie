@@ -10,7 +10,7 @@
     z-index: 1000;
 }
 
-.modal-background{
+.modalbackground{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -19,7 +19,7 @@
     z-index: 1;
 }
 
-.modal-header{
+.modalheader{
     position: relative;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@
 }
 
 
-.modal-content-box{
+.modalcontentbox{
     position: relative;
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@
     width: 830px;
 }
 
-.modal-movie-main{
+.modalmoviemain{
     position: relative;
     display: flex;
     justify-content: center;
@@ -57,7 +57,7 @@
     gap: 30px;
 }
 
-.modal-movie-detailbox{
+.modalmoviedetailbox{
     height: 433px;
     position: relative;
     display: flex;
@@ -71,22 +71,22 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
-.modal-movie-description{
-    overflow: scroll;
+.modalmoviedescription{
+    overflow: auto;
     height: 280px;
 }
 
-.modal-movie-genre{
+.modalmoviegenre{
     margin-bottom: 30px;
 }
 
-.modal-movie-img{
+.modalmovieimg{
     position: relative;
     width: 292px;
     height: 433px;
 }
 
-.modal-close-x{
+.modalclosex{
     display: flex;
     position: absolute;
     right: 10px;
@@ -94,7 +94,7 @@
     font-weight: 700;
 }
 
-.modal-vote-box{
+.modalvotebox{
     font-size: 20px;
     position: absolute;
     bottom: 0;
@@ -109,22 +109,22 @@
 
 /* 모바일 (화면 너비 600px 이하) */
 @media (max-width: 600px) {
-    .modal-content-box{
+    .modalcontentbox{
         width: 100%;
         position: absolute;
         bottom: 0;
     }
-    .modal-movie-img{
+    .modalmovieimg{
         height: 0px;
     }
 }
 
 /* 테블릿 (화면 너비 601px ~ 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
-    .modal-content-box{
+    .modalcontentbox{
         width: 740px;
     }
-    .modal-movie-img{
+    .modalmovieimg{
         height: 400px;
     }
 }

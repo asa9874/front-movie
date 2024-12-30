@@ -1,5 +1,5 @@
 
-.search-box{
+.searchbox{
     float: right;
     background-color: white;
     width: 320px;
@@ -8,7 +8,7 @@
     border-radius:10px;
 }
 
-.search-input{
+.searchinput{
     height: 42px;
     border-radius:10px;
     border: 0px;
@@ -17,11 +17,11 @@
     font-size: 20px;
 }
 
-.search-toggle-button{
+.searchtogglebutton{
     display: none;
 }
 
-.search-button {
+.searchbutton {
     border: 0;
     width: 18px;
     height: 18px;
@@ -29,13 +29,13 @@
 
 /* 모바일 */
 @media (max-width: 768px) {
-    .search-toggle-button{
+    .searchtogglebutton{
         display: flex;
         float: right;
         background-color: white;
         border-radius: 30px;
     }
-    .search-box{
+    .searchbox{
         position: fixed;
         top:60px;
         width: 100%;

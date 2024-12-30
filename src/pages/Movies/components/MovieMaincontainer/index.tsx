@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import MovieMoreButton from '../MovieMoreButton'
-import './movie.css'
+import styles from './MovieMainContainer.module.css'
 import { Movie } from '../../types/movie';
 
 import MovieCard from '../MovieCard';
-import './movieCardContainer.css';
 import { getMovie, getSearchMovie } from '../../apis/getMovieApis';
 
 
@@ -57,14 +56,14 @@ function MovieMainContainer({ globalState }: MovieMainContainerProps) {
 
     return (
       <>    
-        <div className="main-container">
+        <div className={styles.maincontainer}>
             {(globalState.searched) && (
-                <p className="main-title">"{globalState.searchString}" 검색결과</p>
+                <p className={styles.maintitle}>"{globalState.searchString}" 검색결과</p>
             )}
             {(!globalState.searched) && (
-                <p className="main-title">지금 인기있는 영화</p>
+                <p className={styles.maintitle}>지금 인기있는 영화</p>
             )}
-            <div className="movie-container">
+            <div className={styles.moviecontainer}>
             {movies?.map((movie, index) => (
               <MovieCard key={`${movie.id}-${index}`} {...movie} />
             ))}

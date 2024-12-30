@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import search_button from "../../assets/search_button.png";
-import './search.css';
+import styles from './search.module.css'
 
 interface GlobalState {
   page: number;
@@ -65,18 +65,18 @@ function Search({ globalState }: SearchProps) {
   return (
     <>
       {!isSearchBoxVisible && (
-        <img className="search-toggle-button" src={search_button} onClick={toggleSearchBox}></img>
+        <img className={styles.searchtogglebutton} src={search_button} onClick={toggleSearchBox}></img>
       )}
       {isSearchBoxVisible && (
-        <form className="search-box">
+        <form className={styles.searchbox}>
           <input
-            className="search-input"
+            className={styles.searchinput}
             type="text"
             placeholder="아바타"
             value={inputString}
             onChange={(e) => setInputString(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>
+          <button className={styles.searchbutton} onClick={handleSearch}>
             <img src={search_button} alt="검색 버튼" />
           </button>
         </form>

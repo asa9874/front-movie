@@ -1,5 +1,5 @@
 import { Movie } from '../../types/movie';
-import './movieCard.css'
+import styles from './movieCard.module.css'
 import star from '../../assets/star.svg'
 import MovieDetail from '../MovieCardDetail'; 
 import { useEffect, useState } from 'react';
@@ -12,12 +12,12 @@ function MovieCard(props: Movie) {
   const movieDetailState = { MovieId: props.id, setShowModal };
   
   return (
-    <div className="movie-card" onClick={()=>{setShowModal(true)}}>
-      <img className="movie-img" src={props.backdrop_path} alt={props.title} />
-      <p className="movie-title">{props.title}</p>
-      <p className="movie-rating">
+    <div className={styles.movieCard} onClick={()=>{setShowModal(true)}}>
+      <img className={styles.movieImg} src={props.backdrop_path} alt={props.title} />
+      <p className={styles.movieTitle}>{props.title}</p>
+      <p className={styles.movieRating}>
         {props.vote_average}
-        <img className="star" src={star} />
+        <img className={styles.star} src={star} />
       </p>
       {showModal && <MovieDetail movieDetailState={movieDetailState} />}
     </div>

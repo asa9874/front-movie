@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getMovieDetail } from "../../apis/getMovieApis";  
 import { MovieDetail } from "../../types/movie";
-import "./modal.css";
+import styles from './MovieCardDetail.module.css'
 import star from '../../assets/star.svg'
+
 
 interface MovieDetailState {
   MovieId: number;  
@@ -47,25 +48,25 @@ function MovieCardDetail({ movieDetailState }: MovieDetailProps) {
   }
 
   return (
-    <div className="modal">
-      <div className="modal-background"></div>
-      <div className="modal-content-box">
-        <div className="modal-header">
-          <div className="modal-close-x" onClick={closemodal}>X</div>
-          <span className="modal-title">{movieData.title}</span>
+    <div className={styles.modal}>
+      <div className={styles.modalbackground}></div>
+      <div className={styles.modalcontentbox}>
+        <div className={styles.modalheader}>
+          <div className={styles.modalclosex} onClick={closemodal}>X</div>
+          <span className={styles.modaltitle}>{movieData.title}</span>
         </div>
-        <div className="modal-movie-main">
-            <img className="modal-movie-img" src={movieData.backdrop_path}></img>
-            <div className="modal-movie-detailbox">
-                <div className="modal-movie-genre">{movieData.genres.map((genre) => genre.name).join(", ")}<img className="star" src={star}/>{movieData.vote_average}</div>
-                <div className="modal-movie-description">{movieData.overview}</div>
-                <div className="modal-vote-box">
+        <div className={styles.modalmoviemain}>
+            <img className={styles.modalmovieimg} src={movieData.backdrop_path}></img>
+            <div className={styles.modalmoviedetailbox}>
+                <div className={styles.modalmoviegenre}>{movieData.genres.map((genre) => genre.name).join(", ")}<img className={styles.star} src={star}/>{movieData.vote_average}</div>
+                <div className={styles.modalmoviedescription}>{movieData.overview}</div>
+                <div className={styles.modalvotebox}>
                     <span>내 별점</span>
-                    <img className="star" src={star}/>
-                    <img className="star" src={star}/>
-                    <img className="star" src={star}/>
-                    <img className="star" src={star}/>
-                    <img className="star" src={star}/>
+                    <img className={styles.star} src={star}/>
+                    <img className={styles.star} src={star}/>
+                    <img className={styles.star} src={star}/>
+                    <img className={styles.star} src={star}/>
+                    <img className={styles.star} src={star}/>
                     <span>6</span>
                     <span>보통이에요</span>
                 </div>

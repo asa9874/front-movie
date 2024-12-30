@@ -1,4 +1,4 @@
-.main-container{
+.maincontainer{
     width: calc(100% - 180px);
     display: flex;
     margin: 120px 180px 150px 180px;
@@ -6,9 +6,15 @@
     
 }
 
-.main-title{
+.maintitle{
     font-size: 36px;
     color: white;
     font-weight: 800;
 }
 
+.moviecontainer{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+}
