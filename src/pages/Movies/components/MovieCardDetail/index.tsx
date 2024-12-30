@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getMovieDetail } from "../../apis/getMovieApis"; // API 호출 함수
+import { getMovieDetail } from "../../apis/getMovieApis";  
 import { MovieDetail } from "../../types/movie";
 import "./modal.css";
 import star from '../../assets/star.svg'
 
 interface MovieDetailState {
-  MovieId: number; // 영화 ID 
+  MovieId: number;  
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -41,13 +41,17 @@ function MovieCardDetail({ movieDetailState }: MovieDetailProps) {
   if (!movieData) {
     return <div className="modal">Failed to load movie details.</div>;
   }
+  function closemodal(){
+    console.log("닫아")
+    movieDetailState.setShowModal(false)
+  }
 
   return (
     <div className="modal">
       <div className="modal-background"></div>
       <div className="modal-content-box">
         <div className="modal-header">
-          <div className="modal-close-x" onClick={() => movieDetailState.setShowModal(false)}>X</div>
+          <div className="modal-close-x" onClick={closemodal}>X</div>
           <span className="modal-title">{movieData.title}</span>
         </div>
         <div className="modal-movie-main">
