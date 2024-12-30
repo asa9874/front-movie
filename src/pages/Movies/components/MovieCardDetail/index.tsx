@@ -53,10 +53,18 @@ function MovieCardDetail({ movieDetailState }: MovieDetailProps) {
         <div className="modal-movie-main">
             <img className="modal-movie-img" src={movieData.backdrop_path}></img>
             <div className="modal-movie-detailbox">
-                <div className="modal-movie-genre">{movieData.genres.map((genre) => genre.name).join(", ")}</div>
-                <div className="modal-movie-vote"><img className="star" src={star}/>{movieData.vote_average}</div>
+                <div className="modal-movie-genre">{movieData.genres.map((genre) => genre.name).join(", ")}<img className="star" src={star}/>{movieData.vote_average}</div>
                 <div className="modal-movie-description">{movieData.overview}</div>
-                <div className="modal-myvote">내별점</div>
+                <div className="modal-vote-box">
+                    <span>내 별점</span>
+                    <img className="star" src={star}/>
+                    <img className="star" src={star}/>
+                    <img className="star" src={star}/>
+                    <img className="star" src={star}/>
+                    <img className="star" src={star}/>
+                    <span>6</span>
+                    <span>보통이에요</span>
+                </div>
             </div>
         </div>
       </div>
