@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
 import search_button from "../../assets/search_button.png";
 import styles from './search.module.css'
-
-interface GlobalState {
-  page: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-  searched: boolean;
-  setSearched: React.Dispatch<React.SetStateAction<boolean>>;
-  searchString: string;
-  setSearchString: React.Dispatch<React.SetStateAction<string>>;
-  searchClicked : boolean;
-  setsearchClicked: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-interface SearchProps {
-  globalState: GlobalState; 
-}
+import { useGlobalState } from "../../context";
 
 
-function Search({ globalState }: SearchProps) {
+
+function Search() {
+
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
   const [inputString, setInputString] = useState(String);
   const [Test, setTest] = useState(1);
+  
+  // Context 호출
+  const {
+    setPage,
+    setSearched,
+    setSearchString,
+    setSearchClicked,
+  } = useGlobalState();
+
   useEffect(() => {
     //이벤트
     const handleResize = () => {
@@ -48,15 +45,15 @@ function Search({ globalState }: SearchProps) {
     console.log(Test);
     setTest(prev=>prev+1);
     console.log("searchClicked: 변경")
-    globalState.setsearchClicked(prev => !prev);
+    setSearchClicked(prev => !prev);
     if(inputString!=""){
-      globalState.setSearched(true);
-      globalState.setPage(1);
-      globalState.setSearchString(inputString);
+      setSearched(true);
+      setPage(1);
+      setSearchString(inputString);
     }
     else{
-      globalState.setSearched(false);
-      globalState.setSearchString("");
+      setSearched(false);
+      setSearchString("");
     }
   };
 

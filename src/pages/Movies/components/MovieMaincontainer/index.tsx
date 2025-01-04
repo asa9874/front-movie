@@ -5,47 +5,39 @@ import { Movie } from '../../types/movie';
 
 import MovieCard from '../MovieCard';
 import { getMovie, getSearchMovie } from '../../apis/getMovieApis';
+import { useGlobalState } from '../../context';
 
 
-interface GlobalState {
-    page: number;
-    setPage: React.Dispatch<React.SetStateAction<number>>;
-    searched: boolean;
-    setSearched: React.Dispatch<React.SetStateAction<boolean>>;
-    searchString: string;
-    setSearchString: React.Dispatch<React.SetStateAction<string>>;
-    searchClicked : boolean;
-    setsearchClicked: React.Dispatch<React.SetStateAction<boolean>>;
-  }
-  
-interface MovieMainContainerProps {
-    globalState: GlobalState; 
-}
-
-
-function MovieMainContainer({ globalState }: MovieMainContainerProps) {
+function MovieMainContainer() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  // Context 호출
+  const { 
+    searchClicked, 
+    searched, 
+    searchString, 
+    page 
+  } = useGlobalState();
 
   //검색시 영화초기화
   useEffect(() => {
     setMovies([]);
     console.log("영화추가 : 영화초기화")
     fetchMovies();
-  }, [globalState.searchClicked]);
+  }, [searchClicked]);
 
   //영화추가
   useEffect(() => {
-    if(globalState.page!=1) fetchMovies();
-  }, [globalState.page]);
+    if(page!=1) fetchMovies();
+  }, [page]);
 
   const fetchMovies = async () => {
-    if (globalState.searched) {//검색됨
-      const Movies = await getSearchMovie(globalState.page, globalState.searchString);
+    if (searched) {//검색됨
+      const Movies = await getSearchMovie(page, searchString);
       setMovies((prevMovies) => [...prevMovies, ...Movies]); // 기존 영화에 추가
-      console.log("영화추가 : <<"+globalState.searchString+">> 검색영화추가");
+      console.log("영화추가 : <<"+searchString+">> 검색영화추가");
     } 
     else {// 인기 영화
-      const Movies = await getMovie(globalState.page);
+      const Movies = await getMovie(page);
       setMovies((prevMovies) => [...prevMovies, ...Movies]); // 기존 영화에 추가
       console.log("영화추가 : 인기영화추가");
     }
@@ -57,10 +49,10 @@ function MovieMainContainer({ globalState }: MovieMainContainerProps) {
     return (
       <>    
         <div className={styles.maincontainer}>
-            {(globalState.searched) && (
-                <p className={styles.maintitle}>"{globalState.searchString}" 검색결과</p>
+            {(searched) && (
+                <p className={styles.maintitle}>"{searchString}" 검색결과</p>
             )}
-            {(!globalState.searched) && (
+            {(!searched) && (
                 <p className={styles.maintitle}>지금 인기있는 영화</p>
             )}
             <div className={styles.moviecontainer}>
@@ -69,7 +61,7 @@ function MovieMainContainer({ globalState }: MovieMainContainerProps) {
             ))}
             </div>
             {(movies?.length % 20 === 0) && (
-              <MovieMoreButton globalState={globalState} />
+              <MovieMoreButton/>
             )}
         </div>
       </>
