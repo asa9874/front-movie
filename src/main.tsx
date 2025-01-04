@@ -3,9 +3,12 @@ import Movies from './pages/Movies'
 import './styles/global.css'
 import './styles/reset.css'
 import { GlobalStateProvider } from './pages/Movies/context'
+import { StrictMode } from 'react'
 
 createRoot(document.getElementById('root')!).render(
-  <GlobalStateProvider>
-    <Movies />
-  </GlobalStateProvider>,
+  <StrictMode>
+    <GlobalStateProvider>
+      <Movies />
+    </GlobalStateProvider>
+  </StrictMode>
 )

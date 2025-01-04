@@ -6,7 +6,6 @@ import { useGlobalState } from "../../context";
 
 
 function Search() {
-
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
   const [inputString, setInputString] = useState(String);
   const [Test, setTest] = useState(1);
@@ -25,13 +24,16 @@ function Search() {
       if (window.innerWidth > 768) setSearchBoxVisible(true);
       else setSearchBoxVisible(false);
     };
+
     //이벤트등록
     window.addEventListener("resize", handleResize);
     handleResize(); 
+    
     //이벤트제거(컴포넌트제거시)
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+
   }, []);
 
   //토글
@@ -56,7 +58,6 @@ function Search() {
       setSearchString("");
     }
   };
-
 
   //isSearchBoxVisible이 true일때만 검색박스보임
   return (

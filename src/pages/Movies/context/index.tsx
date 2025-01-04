@@ -53,7 +53,7 @@ const GlobalStateProvider: React.FC<GlobalStateProviderProps> = ({ children }) =
 const useGlobalState = (): GlobalState => {
   const context = useContext(GlobalStateContext);
   if (!context) {
-    throw new Error('useGlobalState must be used within a GlobalStateProvider');
+    throw new Error('Context 오류');
   }
   return context;
 };
