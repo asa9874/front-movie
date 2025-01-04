@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import Header from './components/Header';
 import MovieMaincontainer from './components/MovieMaincontainer';
+
+
+
 function Movies() {
   const [page, setPage] = useState<number>(1);
   const [searched, setSearched] = useState<boolean>(false);
