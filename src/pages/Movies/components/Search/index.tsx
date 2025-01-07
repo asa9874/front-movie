@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import search_button from "../../assets/search_button.png";
 import styles from './search.module.css'
-import { useGlobalState } from "../../context";
+import { useStore } from "../../context";
 
 
 
@@ -16,7 +16,8 @@ function Search() {
     setSearched,
     setSearchString,
     setSearchClicked,
-  } = useGlobalState();
+    searchClicked,
+  } = useStore();
 
   useEffect(() => {
     //이벤트
@@ -47,7 +48,7 @@ function Search() {
     console.log(Test);
     setTest(prev=>prev+1);
     console.log("searchClicked: 변경")
-    setSearchClicked(prev => !prev);
+    setSearchClicked(!searchClicked);
     if(inputString!=""){
       setSearched(true);
       setPage(1);

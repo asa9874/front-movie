@@ -1,9 +1,9 @@
-import { useGlobalState } from '../../context';
+import { useStore } from '../../context';
 import styles from './movieMoreButton.module.css'
 
 
 function MovieMoreButton() {
-  const { page, setPage } = useGlobalState();
+  const { page, setPage } = useStore();
     return (
       <>
         <button className={styles.morebutton} onClick={() =>setPage(page+1)}>더보기</button>

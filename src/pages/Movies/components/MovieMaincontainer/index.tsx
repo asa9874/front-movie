@@ -5,7 +5,7 @@ import { Movie } from '../../types/movie';
 
 import MovieCard from '../MovieCard';
 import { getMovie, getSearchMovie } from '../../apis/getMovieApis';
-import { useGlobalState } from '../../context';
+import { useStore } from '../../context';
 
 
 function MovieMainContainer() {
@@ -16,7 +16,7 @@ function MovieMainContainer() {
     searched, 
     searchString, 
     page 
-  } = useGlobalState();
+  } = useStore();
 
   //검색시 영화초기화
   useEffect(() => {
