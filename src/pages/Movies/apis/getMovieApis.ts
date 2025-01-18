@@ -92,6 +92,7 @@ export function getMovieDetailAPi(url: string): Promise<MovieDetail> {
         vote_average: json.vote_average || 0,
         vote_count: json.vote_count || 0,
       };
+      console.log(movieDetail)
       return movieDetail;
     })
     .catch(err => {

@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 
 
-//zustand 방식
 interface GlobalState {
   page: number;
   setPage: (page: number) => void; 

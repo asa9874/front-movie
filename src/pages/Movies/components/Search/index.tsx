@@ -10,7 +10,6 @@ function Search() {
   const [inputString, setInputString] = useState(String);
   const [Test, setTest] = useState(1);
   
-  // Context 호출
   const {
     setPage,
     setSearched,
