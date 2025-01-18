@@ -55,7 +55,7 @@ function MovieMainContainer() {
         )}
         <div className={styles.moviecontainer}>
           {movies?.map((movie, index) => (
-            <Suspense key={`${movie.id}-${index}`} fallback={<img className={styles.loadingcard} src={loading} alt="Loading" />}>
+            <Suspense key={`${movie.id}-${index}`} fallback={<div className={styles.loadingcard} alt="Loading" />}>
               <MovieCard {...movie} />
             </Suspense>
           ))}
